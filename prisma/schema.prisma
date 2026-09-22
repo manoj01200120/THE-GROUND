@@ -1,0 +1,159 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWING
+  SHORTLISTED
+  ACCEPTED
+  REJECTED
+}
+
+enum InquiryStatus {
+  NEW
+  QUALIFIED
+  PROPOSAL
+  IN_PROGRESS
+  COMPLETED
+  REJECTED
+}
+
+enum ProjectStage {
+  DISCOVERY
+  DECISION
+  TEAM
+  BUILD
+  VALIDATE
+  SHIP
+  MAINTAIN
+  LEARN
+}
+
+enum ProjectStatus {
+  PLANNING
+  ACTIVE
+  PAUSED
+  SHIPPED
+  ARCHIVED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      String   @default("MEMBER")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("ADMIN")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model StudentApplication {
+  id            String            @id @default(cuid())
+  name          String
+  email         String            @unique
+  phone         String
+  college       String
+  course        String
+  year          String
+  city          String
+  skills        String            // Stored as JSON string or comma-separated list
+  interests     String
+  experience    String
+  projects      String            // What have you built before
+  learningGoals String            // What do you want to learn
+  availability  String            // Time commitment
+  portfolio     String?
+  github        String?
+  linkedin      String?
+  resumeUrl     String?
+  notes         String?           // Internal admin notes
+  status        ApplicationStatus @default(PENDING)
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  @@index([status])
+  @@index([email])
+}
+
+model ClientInquiry {
+  id              String        @id @default(cuid())
+  name            String
+  company         String
+  email           String
+  phone           String
+  role            String
+  problem         String
+  expectedOutcome String
+  budget          String
+  timeline        String
+  additionalInfo  String?
+  notes           String?       // Internal admin notes
+  status          InquiryStatus @default(NEW)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([status])
+  @@index([email])
+}
+
+model Project {
+  id          String          @id @default(cuid())
+  name        String
+  description String
+  problem     String
+  owner       String
+  stage       ProjectStage    @default(DISCOVERY)
+  status      ProjectStatus   @default(PLANNING)
+  deadline    DateTime?
+  progress    Int             @default(0)
+  client      String?
+  documents   String?         // Stored as JSON or markdown
+  blockers    String?
+  outcome     String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  members     ProjectMember[]
+
+  @@index([stage])
+  @@index([status])
+}
+
+model ProjectMember {
+  id        String   @id @default(cuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  name      String
+  role      String
+  email     String
+  avatar    String?
+  createdAt DateTime @default(now())
+
+  @@index([projectId])
+}
+
+model ActivityLog {
+  id         String   @id @default(cuid())
+  action     String
+  details    String
+  adminEmail String?
+  ipAddress  String?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+}

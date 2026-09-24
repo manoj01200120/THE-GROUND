@@ -100,7 +100,7 @@ const stages: Stage[] = [
     tagline: "Deploy to production. Put software into the wild.",
     icon: Send,
     input: "Validated release candidate and staging sign-off.",
-    execution: "Zero-downtime production deployment, telemetry initialization, DNS cutover, release announcement.",
+    execution: "Production deployment, telemetry initialization, DNS cutover, release announcement.",
     deliverable: "Live production URL, telemetry dashboards, user documentation.",
     mindset: "Shipping is where real software begins.",
   },
@@ -134,16 +134,16 @@ export default function HowItWorks() {
   const Icon = current.icon;
 
   return (
-    <section id="how-it-works" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-white/[0.06]">
-      <div className="space-y-4 max-w-3xl">
-        <div className="text-xs font-mono tracking-widest text-violet-400 uppercase">
+    <section id="how-it-works" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15">
+      <div className="space-y-3 max-w-3xl">
+        <div className="text-xs font-mono tracking-widest text-[#0B1C2D]/80 uppercase">
           03 // The Operating Lifecycle
         </div>
-        <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white font-mono uppercase">
+        <h2 className="text-3xl md:text-5xl font-sans font-medium uppercase tracking-tight text-[#071521]">
           How THE GROUND Works
         </h2>
-        <p className="text-zinc-400 text-base md:text-lg leading-relaxed">
-          Every initiative within THE GROUND follows an uncompromising, structured sequence from initial problem framing to ecosystem compounding.
+        <p className="text-[#071521]/80 text-base md:text-lg leading-relaxed font-sans">
+          Every initiative follows an uncompromising, structured sequence from initial problem framing to ecosystem compounding.
         </p>
       </div>
 
@@ -158,11 +158,11 @@ export default function HowItWorks() {
               onClick={() => setSelectedStage(idx)}
               className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-lg border text-xs font-mono uppercase transition-all duration-200 ${
                 isCurrent
-                  ? "bg-white/10 border-violet-500/60 text-white shadow-glow-violet"
-                  : "bg-white/[0.02] border-white/[0.08] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]"
+                  ? "bg-[#0B1C2D] border-[#0B1C2D] text-[#F3EBDD] shadow-sm"
+                  : "ground-card text-[#071521]/80 hover:text-[#0B1C2D]"
               }`}
             >
-              <StageIcon className={`w-3.5 h-3.5 ${isCurrent ? "text-violet-300" : "text-zinc-500"}`} />
+              <StageIcon className={`w-3.5 h-3.5 ${isCurrent ? "text-ground-cream" : "text-[#0B1C2D]/70"}`} />
               <span className="font-semibold">{st.number}</span>
               <span>{st.name}</span>
             </button>
@@ -171,74 +171,74 @@ export default function HowItWorks() {
       </div>
 
       {/* Active Stage Detailed Breakdown */}
-      <div className="mt-8 glass-panel rounded-xl p-8 md:p-10 border border-white/10 relative overflow-hidden">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+      <div className="mt-6 ground-card-dark p-8 md:p-10 relative overflow-hidden">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-ground-cream/15 pb-6">
           <div className="flex items-center gap-4">
-            <div className="p-3.5 rounded-lg bg-violet-500/10 border border-violet-500/30 text-violet-300">
+            <div className="p-3.5 rounded-lg bg-ground-cream/15 border border-ground-cream/30 text-ground-cream">
               <Icon className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xs font-mono uppercase text-zinc-500">Stage {current.number}</div>
-              <h3 className="text-3xl font-mono uppercase text-white font-medium">
+              <div className="text-xs font-mono uppercase text-ground-cream/60">Stage {current.number}</div>
+              <h3 className="text-2xl md:text-3xl font-sans uppercase text-ground-cream font-medium">
                 {current.name}
               </h3>
             </div>
           </div>
-          <div className="text-sm font-mono text-zinc-400 italic max-w-md">
+          <div className="text-sm font-sans text-ground-cream/80 italic max-w-md">
             &ldquo;{current.tagline}&rdquo;
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-          <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] space-y-2">
-            <div className="text-[11px] font-mono uppercase text-zinc-500 tracking-wider">
+          <div className="p-4 rounded-lg bg-[#071521]/60 border border-ground-cream/15 space-y-2">
+            <div className="text-[11px] font-mono uppercase text-ground-cream/70 tracking-wider">
               01 // Required Input
             </div>
-            <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+            <p className="text-xs text-ground-cream/90 leading-relaxed font-sans">
               {current.input}
             </p>
           </div>
 
-          <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] space-y-2">
-            <div className="text-[11px] font-mono uppercase text-zinc-500 tracking-wider">
+          <div className="p-4 rounded-lg bg-[#071521]/60 border border-ground-cream/15 space-y-2">
+            <div className="text-[11px] font-mono uppercase text-ground-cream/70 tracking-wider">
               02 // Execution Protocol
             </div>
-            <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+            <p className="text-xs text-ground-cream/90 leading-relaxed font-sans">
               {current.execution}
             </p>
           </div>
 
-          <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] space-y-2">
-            <div className="text-[11px] font-mono uppercase text-zinc-500 tracking-wider">
+          <div className="p-4 rounded-lg bg-[#071521]/60 border border-ground-cream/15 space-y-2">
+            <div className="text-[11px] font-mono uppercase text-ground-cream/70 tracking-wider">
               03 // Deliverable
             </div>
-            <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+            <p className="text-xs text-ground-cream/90 leading-relaxed font-sans">
               {current.deliverable}
             </p>
           </div>
 
-          <div className="p-4 rounded-lg bg-violet-500/[0.04] border border-violet-500/20 space-y-2">
-            <div className="text-[11px] font-mono uppercase text-violet-400 tracking-wider">
+          <div className="p-4 rounded-lg bg-ground-cream/10 border border-ground-cream/25 space-y-2">
+            <div className="text-[11px] font-mono uppercase text-ground-cream tracking-wider font-semibold">
               04 // Builder Mindset
             </div>
-            <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+            <p className="text-xs text-ground-cream leading-relaxed font-sans">
               {current.mindset}
             </p>
           </div>
         </div>
 
         {/* Next Stage Controller */}
-        <div className="mt-8 pt-6 border-t border-white/[0.06] flex items-center justify-between">
+        <div className="mt-8 pt-6 border-t border-ground-cream/15 flex items-center justify-between">
           <button
             disabled={selectedStage === 0}
             onClick={() => setSelectedStage((prev) => Math.max(0, prev - 1))}
-            className="text-xs font-mono uppercase text-zinc-500 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
+            className="text-xs font-mono uppercase text-ground-cream/60 hover:text-ground-cream disabled:opacity-30 disabled:pointer-events-none transition-colors"
           >
             &larr; Previous Stage
           </button>
           <button
             onClick={() => setSelectedStage((prev) => (prev + 1) % stages.length)}
-            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase text-violet-400 hover:text-violet-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase text-ground-cream hover:underline transition-colors"
           >
             <span>Next Stage: {stages[(selectedStage + 1) % stages.length].name}</span>
             <ChevronRight className="w-4 h-4" />

@@ -27,7 +27,7 @@ const steps: Step[] = [
     id: "build",
     name: "Build",
     shortDesc: "Execute with high craft, rigorous standards, and disciplined collaboration.",
-    fullDesc: "Theory without execution is dormant. In this phase, multidisciplinary student teams architect data schemas, write production-grade code, craft intuitive interfaces, and conduct peer reviews under real-world version control.",
+    fullDesc: "Theory without execution is dormant. In this phase, multidisciplinary teams architect data schemas, write production-grade code, craft intuitive interfaces, and conduct peer reviews under real-world version control.",
     action: "System implementation, component design, schema migrations, automated tests.",
     icon: Hammer,
     badge: "Phase 02",
@@ -36,7 +36,7 @@ const steps: Step[] = [
     id: "ship",
     name: "Ship",
     shortDesc: "Deliver real software into the hands of real users or legitimate clients.",
-    fullDesc: "A project does not exist until it is deployed in production. We configure CI/CD pipelines, monitor error logs, run load tests, and deliver functional software to clients, open-source communities, or real users.",
+    fullDesc: "A project does not exist until it is deployed in production. We configure deployment pipelines, monitor error logs, run load tests, and deliver functional software to clients, open-source communities, or real users.",
     action: "Production deployments, DNS & domain routing, telemetry setup, user onboarding.",
     icon: Rocket,
     badge: "Phase 03",
@@ -65,16 +65,16 @@ export default function WhatAreWe() {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
-    <section id="what-we-are" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-white/[0.06]">
-      <div className="space-y-4 max-w-3xl">
-        <div className="text-xs font-mono tracking-widest text-violet-400 uppercase">
+    <section id="what-we-are" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15">
+      <div className="space-y-3 max-w-3xl">
+        <div className="text-xs font-mono tracking-widest text-[#0B1C2D]/80 uppercase">
           01 // The Operating Philosophy
         </div>
-        <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white font-mono uppercase">
+        <h2 className="text-3xl md:text-5xl font-sans font-medium uppercase tracking-tight text-[#071521]">
           What is THE GROUND?
         </h2>
-        <p className="text-zinc-400 text-base md:text-lg leading-relaxed">
-          THE GROUND is a <span className="text-zinc-200 font-medium">student-driven builder ecosystem</span>. We do not run hypothetical classroom exercises or academic simulations. Students learn through a continuous, disciplined five-part cycle:
+        <p className="text-[#071521]/80 text-base md:text-lg leading-relaxed font-sans">
+          THE GROUND is a <span className="text-[#0B1C2D] font-semibold">student-driven builder ecosystem</span>. We do not run hypothetical classroom exercises or academic simulations. Students learn through a continuous, disciplined five-part cycle:
         </p>
       </div>
 
@@ -91,27 +91,29 @@ export default function WhatAreWe() {
                 onClick={() => setActiveStep(idx)}
                 className={`w-full text-left p-4 rounded-lg border transition-all duration-200 flex items-start gap-4 ${
                   isSelected
-                    ? "bg-white/[0.07] border-white/30 text-white shadow-subtle-card"
-                    : "bg-white/[0.02] border-white/[0.06] text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-200"
+                    ? "bg-[#0B1C2D] text-[#F3EBDD] border-[#0B1C2D] shadow-md"
+                    : "ground-card text-[#071521]/80 hover:text-[#0B1C2D] hover:bg-[#0B1C2D]/15"
                 }`}
               >
                 <div
                   className={`p-2.5 rounded-md border ${
                     isSelected
-                      ? "bg-violet-500/20 border-violet-500/50 text-violet-300"
-                      : "bg-white/5 border-white/10 text-zinc-400"
+                      ? "bg-[#F3EBDD]/15 border-[#F3EBDD]/30 text-[#F3EBDD]"
+                      : "bg-[#0B1C2D]/10 border-[#0B1C2D]/15 text-[#0B1C2D]"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-sm uppercase tracking-wider font-semibold">
+                    <span className="font-sans text-sm uppercase tracking-wider font-semibold">
                       {step.name}
                     </span>
-                    <span className="text-[11px] font-mono text-zinc-500">{step.badge}</span>
+                    <span className={`text-[11px] font-mono ${isSelected ? "text-[#F3EBDD]/70" : "text-[#0B1C2D]/60"}`}>
+                      {step.badge}
+                    </span>
                   </div>
-                  <p className="text-xs text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
+                  <p className={`text-xs mt-1 line-clamp-2 leading-relaxed font-sans ${isSelected ? "text-[#F3EBDD]/80" : "text-[#071521]/75"}`}>
                     {step.shortDesc}
                   </p>
                 </div>
@@ -121,52 +123,50 @@ export default function WhatAreWe() {
         </div>
 
         {/* Active Step Details Panel */}
-        <div className="lg:col-span-7 glass-panel rounded-xl p-8 border border-white/10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600/10 blur-3xl pointer-events-none -z-10" />
-
-          <div className="flex items-center justify-between border-b border-white/10 pb-5">
+        <div className="lg:col-span-7 ground-card-dark p-8 md:p-10 relative overflow-hidden">
+          <div className="flex items-center justify-between border-b border-ground-cream/15 pb-5">
             <div className="flex items-center gap-3">
-              <span className="px-2.5 py-1 rounded bg-violet-500/10 border border-violet-500/30 text-violet-300 text-xs font-mono uppercase">
+              <span className="px-2.5 py-1 rounded bg-ground-cream/15 border border-ground-cream/30 text-ground-cream text-xs font-mono uppercase">
                 {steps[activeStep].badge}
               </span>
-              <h3 className="text-2xl font-mono uppercase text-white font-medium">
+              <h3 className="text-2xl font-sans uppercase text-ground-cream font-medium">
                 {steps[activeStep].name}
               </h3>
             </div>
-            <span className="text-xs font-mono text-zinc-500">Step {activeStep + 1} of 5</span>
+            <span className="text-xs font-mono text-ground-cream/60">Step {activeStep + 1} of 5</span>
           </div>
 
           <div className="mt-6 space-y-6">
             <div>
-              <div className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-2">
+              <div className="text-xs font-mono uppercase tracking-widest text-ground-cream/60 mb-2">
                 The Ground Execution Model
               </div>
-              <p className="text-zinc-300 text-sm md:text-base leading-relaxed">
+              <p className="text-ground-cream/90 text-sm md:text-base leading-relaxed font-sans">
                 {steps[activeStep].fullDesc}
               </p>
             </div>
 
-            <div className="p-4 rounded-lg bg-black/40 border border-white/[0.06] space-y-2">
-              <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-400">
+            <div className="p-4 rounded-lg bg-[#071521]/60 border border-ground-cream/15 space-y-1.5">
+              <div className="text-[11px] font-mono uppercase tracking-wider text-ground-cream/70">
                 Tangible Outputs & Evidence
               </div>
-              <p className="text-xs text-zinc-300 font-mono">
+              <p className="text-xs text-ground-cream font-mono leading-relaxed">
                 {steps[activeStep].action}
               </p>
             </div>
 
-            <div className="pt-2 flex items-center justify-between">
+            <div className="pt-2 flex items-center justify-between border-t border-ground-cream/10">
               <button
                 disabled={activeStep === 0}
                 onClick={() => setActiveStep((prev) => Math.max(0, prev - 1))}
-                className="text-xs font-mono uppercase text-zinc-400 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                className="text-xs font-mono uppercase text-ground-cream/60 hover:text-ground-cream disabled:opacity-30 disabled:pointer-events-none transition-colors"
               >
                 &larr; Previous Phase
               </button>
 
               <button
                 onClick={() => setActiveStep((prev) => (prev + 1) % steps.length)}
-                className="inline-flex items-center gap-1.5 text-xs font-mono uppercase text-violet-400 hover:text-violet-300 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-mono uppercase text-ground-cream hover:underline transition-colors"
               >
                 <span>{activeStep === 4 ? "Restart Loop" : "Next Phase"}</span>
                 <ArrowRight className="w-3.5 h-3.5" />

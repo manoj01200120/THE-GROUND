@@ -5,13 +5,11 @@ import AdminLayoutWrapper from "@/components/admin/AdminLayoutWrapper";
 import Link from "next/link";
 import {
   Users,
-  Clock,
   CheckCircle2,
   Layers,
   Briefcase,
   Activity,
   ArrowUpRight,
-  TrendingUp,
 } from "lucide-react";
 
 export const revalidate = 0;
@@ -31,12 +29,12 @@ export default async function AdminOverviewPage() {
       sub: `${stats.pendingApplications} Pending Reviews`,
       icon: Users,
       href: "/admin/applications",
-      color: "text-violet-400",
+      color: "text-[#9DB9D0]",
     },
     {
       label: "Accepted / Shortlisted",
       value: `${stats.acceptedApplications} / ${stats.shortlistedApplications}`,
-      sub: "Builder pipeline",
+      sub: "Active builder pool",
       icon: CheckCircle2,
       href: "/admin/applications",
       color: "text-emerald-400",
@@ -47,7 +45,7 @@ export default async function AdminOverviewPage() {
       sub: `${stats.totalProjects} Total Registered`,
       icon: Layers,
       href: "/admin/projects",
-      color: "text-cyan-400",
+      color: "text-sky-300",
     },
     {
       label: "Client Inquiries",
@@ -55,7 +53,7 @@ export default async function AdminOverviewPage() {
       sub: `${stats.newInquiries} New Unreviewed`,
       icon: Briefcase,
       href: "/admin/clients",
-      color: "text-amber-400",
+      color: "text-amber-300",
     },
   ];
 
@@ -63,17 +61,18 @@ export default async function AdminOverviewPage() {
     <AdminLayoutWrapper adminEmail={session.email}>
       <div className="space-y-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#F3EBDD]/10 pb-6">
           <div>
-            <div className="text-xs font-mono uppercase tracking-widest text-violet-400">
-              System Control
+            <div className="text-xs font-heading uppercase tracking-widest text-[#9DB9D0]">
+              Ecosystem Control
             </div>
-            <h1 className="text-2xl md:text-3xl font-mono uppercase text-white font-semibold">
-              Ecosystem Overview
+            <h1 className="text-2xl md:text-3xl font-heading uppercase text-[#F3EBDD] font-medium tracking-[0.1em]">
+              Overview
             </h1>
           </div>
-          <div className="text-xs font-mono text-zinc-500">
-            Node: PostgreSQL Connected // Active
+          <div className="text-xs font-heading text-[#9DB9D0]/70 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Database Connected // System Active</span>
           </div>
         </div>
 
@@ -85,22 +84,22 @@ export default async function AdminOverviewPage() {
               <Link
                 key={card.label}
                 href={card.href}
-                className="glass-panel rounded-xl p-5 border border-white/10 hover:border-white/20 transition-all space-y-3 group"
+                className="ground-card-dark rounded-xl p-5 border border-[#F3EBDD]/15 hover:border-[#9DB9D0]/40 transition-all space-y-3 group"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-zinc-400 uppercase tracking-wide">
+                  <span className="text-xs font-heading text-[#9DB9D0] uppercase tracking-wider">
                     {card.label}
                   </span>
-                  <div className={`p-1.5 rounded bg-white/5 ${card.color}`}>
+                  <div className={`p-2 rounded-lg bg-[#071521]/60 ${card.color}`}>
                     <Icon className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="text-3xl font-mono uppercase text-white font-semibold">
+                <div className="text-3xl font-heading uppercase text-[#F3EBDD] font-medium tracking-wide">
                   {card.value}
                 </div>
-                <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                <div className="flex items-center justify-between text-[11px] font-heading text-[#9DB9D0]/80">
                   <span>{card.sub}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#9DB9D0]" />
                 </div>
               </Link>
             );
@@ -108,33 +107,33 @@ export default async function AdminOverviewPage() {
         </div>
 
         {/* Recent Activity Log */}
-        <div className="glass-panel rounded-xl p-6 border border-white/10 space-y-4">
-          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+        <div className="ground-card-dark rounded-xl p-6 border border-[#F3EBDD]/15 space-y-4">
+          <div className="flex items-center justify-between border-b border-[#F3EBDD]/10 pb-4">
             <div className="flex items-center gap-2">
-              <Activity className="w-4 h-4 text-violet-400" />
-              <h2 className="text-sm font-mono uppercase text-white font-semibold">
-                Live Audit Trail & Activity
+              <Activity className="w-4 h-4 text-[#9DB9D0]" />
+              <h2 className="text-sm font-heading uppercase text-[#F3EBDD] font-medium tracking-wider">
+                Live Audit Trail & Events
               </h2>
             </div>
-            <span className="text-[11px] font-mono text-zinc-500">Last 8 Events</span>
+            <span className="text-[11px] font-heading text-[#9DB9D0]/70">Latest Activity</span>
           </div>
 
-          <div className="space-y-2 font-mono text-xs">
+          <div className="space-y-2 font-heading text-xs">
             {stats.recentLogs.length === 0 ? (
-              <div className="text-zinc-500 py-4 text-center">No activity recorded yet.</div>
+              <div className="text-[#9DB9D0]/60 py-6 text-center">No system events recorded yet.</div>
             ) : (
               stats.recentLogs.map((log) => (
                 <div
                   key={log.id}
-                  className="p-3 rounded bg-white/[0.02] border border-white/[0.05] flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                  className="p-3 rounded-lg bg-[#071521]/50 border border-[#F3EBDD]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
                 >
                   <div className="space-y-0.5">
-                    <span className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-zinc-300 font-semibold mr-2">
+                    <span className="px-2 py-0.5 rounded bg-[#6288A6]/20 border border-[#9DB9D0]/30 text-[10px] text-[#F3EBDD] font-medium mr-2 uppercase tracking-wider">
                       {log.action}
                     </span>
-                    <span className="text-zinc-300 font-sans text-xs">{log.details}</span>
+                    <span className="text-[#F3EBDD]/90 text-xs">{log.details}</span>
                   </div>
-                  <div className="text-[10px] text-zinc-500 flex-shrink-0">
+                  <div className="text-[11px] text-[#9DB9D0]/70 flex-shrink-0">
                     {new Date(log.createdAt).toLocaleString()}
                   </div>
                 </div>

@@ -13,6 +13,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { ReactNode } from "react";
+import Logo from "@/components/ui/Logo";
 
 export default function AdminLayoutWrapper({
   children,
@@ -31,30 +32,29 @@ export default function AdminLayoutWrapper({
 
   const navItems = [
     { label: "Overview", href: "/admin", icon: LayoutDashboard },
-    { label: "Student Applications", href: "/admin/applications", icon: Users },
+    { label: "Applications", href: "/admin/applications", icon: Users },
     { label: "Client Inquiries", href: "/admin/clients", icon: Briefcase },
     { label: "Projects", href: "/admin/projects", icon: Layers },
   ];
 
   return (
-    <div className="min-h-screen bg-[#060608] text-zinc-100 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-[#071521] text-[#F3EBDD] flex flex-col md:flex-row">
       {/* Sidebar */}
-      <aside className="w-full md:w-64 border-r border-white/10 bg-[#09090e] p-6 flex flex-col justify-between flex-shrink-0">
+      <aside className="w-full md:w-64 border-r border-[#F3EBDD]/10 bg-[#0B1C2D] p-6 flex flex-col justify-between flex-shrink-0">
         <div className="space-y-8">
           {/* Brand & Admin Badge */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-white font-mono tracking-widest text-sm font-semibold uppercase">
-              <div className="w-4 h-4 rounded-[2px] bg-violet-500" />
-              THE GROUND
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-violet-500/10 border border-violet-500/30 text-[10px] font-mono uppercase text-violet-300">
-              <Shield className="w-3 h-3" />
-              Admin Console
+          <div className="space-y-3">
+            <Link href="/" className="block">
+              <Logo iconSize={28} showText={true} lightText={true} />
+            </Link>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#6288A6]/20 border border-[#9DB9D0]/30 text-[11px] font-heading uppercase tracking-wider text-[#F3EBDD]">
+              <Shield className="w-3 h-3 text-[#9DB9D0]" />
+              Console Portal
             </div>
           </div>
 
           {/* Navigation Links */}
-          <nav className="space-y-1 font-mono text-xs">
+          <nav className="space-y-1 font-heading text-xs uppercase tracking-wider">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href;
@@ -62,13 +62,13 @@ export default function AdminLayoutWrapper({
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-md transition-all ${
+                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg transition-all ${
                     isActive
-                      ? "bg-white/10 text-white font-semibold border border-white/10 shadow-sm"
-                      : "text-zinc-400 hover:text-white hover:bg-white/5"
+                      ? "bg-[#6288A6]/30 text-[#F3EBDD] font-semibold border border-[#9DB9D0]/40 shadow-sm"
+                      : "text-[#9DB9D0] hover:text-[#F3EBDD] hover:bg-[#19334B]/60"
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? "text-violet-400" : "text-zinc-500"}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? "text-[#F3EBDD]" : "text-[#9DB9D0]"}`} />
                   <span>{item.label}</span>
                 </Link>
               );
@@ -77,17 +77,17 @@ export default function AdminLayoutWrapper({
         </div>
 
         {/* User Session & Logout */}
-        <div className="pt-6 border-t border-white/10 space-y-3 font-mono text-xs">
-          <div className="text-zinc-400 truncate">
-            <span className="text-zinc-600 block text-[10px] uppercase">Logged In As</span>
-            <span className="text-zinc-300 text-[11px]">{adminEmail || "Lead Admin"}</span>
+        <div className="pt-6 border-t border-[#F3EBDD]/10 space-y-3 font-heading text-xs">
+          <div className="truncate">
+            <span className="text-[#9DB9D0]/70 block text-[10px] uppercase tracking-wider">Session Active</span>
+            <span className="text-[#F3EBDD] text-[11px] tracking-wide font-medium">{adminEmail || "Lead Admin"}</span>
           </div>
 
           <div className="flex items-center justify-between pt-1">
             <Link
               href="/"
               target="_blank"
-              className="text-zinc-500 hover:text-zinc-300 flex items-center gap-1 text-[11px]"
+              className="text-[#9DB9D0] hover:text-[#F3EBDD] flex items-center gap-1 text-[11px] transition-colors"
             >
               <span>Public Site</span>
               <ExternalLink className="w-3 h-3" />
@@ -95,7 +95,7 @@ export default function AdminLayoutWrapper({
 
             <button
               onClick={handleLogout}
-              className="text-red-400 hover:text-red-300 flex items-center gap-1.5 text-[11px] py-1 px-2 rounded hover:bg-red-500/10 transition-colors"
+              className="text-red-300 hover:text-red-200 flex items-center gap-1.5 text-[11px] py-1 px-2.5 rounded-md hover:bg-red-500/15 transition-colors cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Logout</span>

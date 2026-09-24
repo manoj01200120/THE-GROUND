@@ -1,6 +1,6 @@
 export type ApplicationStatus = 'PENDING' | 'REVIEWING' | 'SHORTLISTED' | 'ACCEPTED' | 'REJECTED';
 
-export type InquiryStatus = 'NEW' | 'QUALIFIED' | 'PROPOSAL' | 'IN_PROGRESS' | 'COMPLETED' | 'REJECTED';
+export type InquiryStatus = 'NEW' | 'REVIEWING' | 'CONTACTED' | 'IN_DISCUSSION' | 'ACCEPTED' | 'REJECTED' | 'COMPLETED';
 
 export type ProjectStage = 'DISCOVERY' | 'DECISION' | 'TEAM' | 'BUILD' | 'VALIDATE' | 'SHIP' | 'MAINTAIN' | 'LEARN';
 
@@ -8,43 +8,36 @@ export type ProjectStatus = 'PLANNING' | 'ACTIVE' | 'PAUSED' | 'SHIPPED' | 'ARCH
 
 export interface StudentApplicationData {
   id?: string;
-  name: string;
+  fullName: string;
   email: string;
   phone: string;
-  college: string;
-  course: string;
-  year: string;
-  city: string;
-  skills: string[];
-  interests: string;
-  experience: string;
-  projects: string;
-  learningGoals: string;
-  availability: string;
-  portfolio?: string;
-  github?: string;
-  linkedin?: string;
-  resumeUrl?: string;
+  collegeOrOrganization: string;
+  currentStatus: 'Student' | 'Professional' | 'Other' | string;
+  courseOrRole?: string | null;
+  yearOrSemester?: string | null;
   status?: ApplicationStatus;
-  notes?: string;
+  adminNotes?: string | null;
   createdAt?: string | Date;
+  updatedAt?: string | Date;
 }
 
 export interface ClientInquiryData {
   id?: string;
   name: string;
-  company: string;
   email: string;
   phone: string;
+  companyOrOrganization: string;
   role: string;
   problem: string;
-  expectedOutcome: string;
+  desiredOutcome: string;
   budget: string;
+  currency: 'INR' | 'USD' | string;
   timeline: string;
-  additionalInfo?: string;
+  additionalInformation?: string | null;
   status?: InquiryStatus;
-  notes?: string;
+  adminNotes?: string | null;
   createdAt?: string | Date;
+  updatedAt?: string | Date;
 }
 
 export interface ProjectData {

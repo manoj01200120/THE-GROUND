@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
 
 export default function ClientSystem() {
   const steps = [
@@ -7,7 +7,7 @@ export default function ClientSystem() {
     { num: "02", name: "Qualification", desc: "Rigorous evaluation of project feasibility and technical scope." },
     { num: "03", name: "Discovery", desc: "Deep architectural alignment sessions with technical stakeholders." },
     { num: "04", name: "Proposal", desc: "Detailed timeline, milestones, sprint plan, and resource allocation." },
-    { num: "05", name: "Agreement", desc: "Formal commitment, transparent budget escrow, and milestone criteria." },
+    { num: "05", name: "Agreement", desc: "Formal commitment, transparent milestone criteria, and budget escrow." },
     { num: "06", name: "Team Formation", desc: "Handpicked student builder squad matched to system domain." },
     { num: "07", name: "Build", desc: "Rapid sprint execution, continuous integration, weekly staging demos." },
     { num: "08", name: "Review", desc: "Code quality audits, peer review by senior mentors, security scanning." },
@@ -18,23 +18,23 @@ export default function ClientSystem() {
   ];
 
   return (
-    <section id="for-clients" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-white/[0.06]">
+    <section id="for-clients" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div className="space-y-4 max-w-2xl">
-          <div className="text-xs font-mono tracking-widest text-violet-400 uppercase">
+        <div className="space-y-3 max-w-2xl">
+          <div className="text-xs font-mono tracking-widest text-[#0B1C2D]/80 uppercase">
             08 // Commercial Partnerships
           </div>
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white font-mono uppercase">
+          <h2 className="text-3xl md:text-5xl font-sans font-medium uppercase tracking-tight text-[#071521]">
             Work With THE GROUND
           </h2>
-          <p className="text-zinc-400 text-base leading-relaxed">
+          <p className="text-[#071521]/80 text-base leading-relaxed font-sans">
             We partner with companies, startups, and institutions who need real software engineered with high craft and disciplined accountability.
           </p>
         </div>
 
         <Link
           href="/clients"
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-white text-black font-mono font-semibold text-xs uppercase tracking-widest hover:bg-zinc-200 transition-all shadow-glow-subtle self-start"
+          className="btn-ground-primary px-6 py-3.5 text-xs tracking-widest inline-flex items-center gap-2 self-start shadow-sm"
         >
           <span>Bring Us a Problem</span>
           <ArrowUpRight className="w-4 h-4" />
@@ -46,16 +46,16 @@ export default function ClientSystem() {
         {steps.map((st) => (
           <div
             key={st.num}
-            className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:border-white/20 transition-all space-y-1.5"
+            className="ground-card p-4 space-y-1.5"
           >
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono text-violet-400 font-bold">{st.num}</span>
-              <span className="text-[10px] font-mono text-zinc-600 uppercase">Stage</span>
+              <span className="text-[11px] font-mono text-[#0B1C2D] font-bold">{st.num}</span>
+              <span className="text-[10px] font-mono text-[#0B1C2D]/50 uppercase">Stage</span>
             </div>
-            <div className="font-mono text-sm uppercase text-white font-medium">
+            <div className="font-sans text-sm uppercase text-[#0B1C2D] font-semibold">
               {st.name}
             </div>
-            <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+            <p className="text-xs text-[#071521]/80 leading-relaxed font-sans">
               {st.desc}
             </p>
           </div>
@@ -63,23 +63,23 @@ export default function ClientSystem() {
       </div>
 
       {/* Client Value Proposition */}
-      <div className="mt-12 p-8 glass-panel rounded-xl border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="mt-12 p-8 ground-card-dark flex flex-col md:flex-row items-center justify-between gap-8 border border-ground-cream/20">
         <div className="space-y-2 max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Guaranteed Value & Transparent Economics</span>
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ground-cream">
+            <ShieldCheck className="w-4 h-4 text-ground-cream" />
+            <span className="font-semibold">Genuine Value & Transparent Economics</span>
           </div>
-          <h3 className="text-xl font-mono uppercase text-white font-semibold">
+          <h3 className="text-xl font-sans uppercase text-ground-cream font-medium tracking-wide">
             Real Engineering. Transparent Revenue.
           </h3>
-          <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+          <p className="text-xs text-ground-cream/80 leading-relaxed font-sans">
             Client fees directly compensate the student builders and fund ecosystem infrastructure. We do not inflate administrative overhead; our incentive is shipping flawless software that solves your business bottleneck.
           </p>
         </div>
 
         <Link
           href="/clients"
-          className="px-6 py-3 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-xs font-mono uppercase tracking-widest text-white transition-colors whitespace-nowrap"
+          className="btn-ground-outline px-6 py-3 text-xs tracking-widest text-ground-cream border-ground-cream/30 hover:border-ground-cream/60 whitespace-nowrap"
         >
           Submit Client Inquiry &rarr;
         </Link>

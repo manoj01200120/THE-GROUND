@@ -27,7 +27,7 @@ const categories: Record<string, Category> = {
   },
   "Products": {
     title: "End-to-End Consumer & Enterprise Products",
-    desc: "Polished web applications, collaborative canvases, productivity software, and spatial interfaces with extraordinary craft.",
+    desc: "Polished web applications, collaborative canvases, productivity software, and spatial interfaces with high craft.",
     examples: ["Collaborative research workspaces", "Local-first note ecosystems", "Interactive analytics suites"],
   },
   "Research": {
@@ -43,7 +43,7 @@ const categories: Record<string, Category> = {
   "Client Projects": {
     title: "Commercial Industry Engagements",
     desc: "High-stakes production deliverables for corporate partners, venture-backed startups, and research institutes.",
-    examples: ["Fleet telemetry telemetry dashboards", "Regulatory compliance parsers", "Fullstack enterprise platforms"],
+    examples: ["Fleet telemetry dashboards", "Regulatory compliance parsers", "Fullstack enterprise platforms"],
   },
   "Member Ideas": {
     title: "Student-Originated Moonshots",
@@ -68,16 +68,16 @@ export default function WhatStudentsDo() {
   const cat = categories[selectedCategory];
 
   return (
-    <section id="what-students-do" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-white/[0.06]">
-      <div className="space-y-4 max-w-3xl">
-        <div className="text-xs font-mono tracking-widest text-violet-400 uppercase">
+    <section id="what-students-do" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15">
+      <div className="space-y-3 max-w-3xl">
+        <div className="text-xs font-mono tracking-widest text-[#0B1C2D]/80 uppercase">
           04 // Multidisciplinary Execution
         </div>
-        <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white font-mono uppercase">
+        <h2 className="text-3xl md:text-5xl font-sans font-medium uppercase tracking-tight text-[#071521]">
           What Students Actually Do
         </h2>
-        <p className="text-zinc-400 text-base md:text-lg leading-relaxed">
-          <span className="text-zinc-200 font-medium">Building is never limited to coding.</span> Real products require diverse minds operating in unison.
+        <p className="text-[#071521]/80 text-base md:text-lg leading-relaxed font-sans">
+          <span className="text-[#0B1C2D] font-semibold">Building is never limited to coding.</span> Real systems require diverse minds operating in unison.
         </p>
       </div>
 
@@ -88,10 +88,10 @@ export default function WhatStudentsDo() {
             <button
               key={name}
               onClick={() => setSelectedCategory(name)}
-              className={`px-4 py-2 rounded-md text-xs font-mono uppercase tracking-wider transition-all whitespace-nowrap ${
+              className={`px-4 py-2 rounded-md text-xs font-sans uppercase tracking-wider transition-all whitespace-nowrap border ${
                 selectedCategory === name
-                  ? "bg-white text-black font-semibold shadow-glow-subtle"
-                  : "bg-white/[0.03] text-zinc-400 border border-white/[0.06] hover:bg-white/[0.06] hover:text-white"
+                  ? "bg-[#0B1C2D] text-[#F3EBDD] font-semibold border-[#0B1C2D] shadow-sm"
+                  : "ground-card text-[#071521]/80 hover:text-[#0B1C2D]"
               }`}
             >
               {name}
@@ -100,28 +100,28 @@ export default function WhatStudentsDo() {
         </div>
 
         {/* Selected Category Feature Card */}
-        <div className="mt-6 glass-panel rounded-xl p-8 border border-white/10">
-          <div className="max-w-2xl space-y-3">
-            <span className="text-xs font-mono uppercase text-violet-400 tracking-wider">
+        <div className="mt-4 ground-card-dark p-8 md:p-10">
+          <div className="max-w-2xl space-y-2.5">
+            <span className="text-xs font-mono uppercase text-ground-cream/70 tracking-wider">
               Category Focus
             </span>
-            <h3 className="text-2xl font-mono uppercase text-white font-medium">
+            <h3 className="text-2xl font-sans uppercase text-ground-cream font-medium">
               {cat.title}
             </h3>
-            <p className="text-zinc-300 text-sm leading-relaxed">
+            <p className="text-ground-cream/85 text-sm leading-relaxed font-sans">
               {cat.desc}
             </p>
           </div>
 
-          <div className="mt-6 pt-6 border-t border-white/[0.08]">
-            <div className="text-xs font-mono uppercase text-zinc-500 mb-3">
+          <div className="mt-6 pt-6 border-t border-ground-cream/15">
+            <div className="text-xs font-mono uppercase text-ground-cream/60 mb-3">
               Representative Initiatives
             </div>
             <div className="flex flex-wrap gap-2">
               {cat.examples.map((ex) => (
                 <span
                   key={ex}
-                  className="px-3 py-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-zinc-300"
+                  className="px-3 py-1.5 rounded bg-[#071521]/60 border border-ground-cream/20 text-xs font-mono text-ground-cream"
                 >
                   &rarr; {ex}
                 </span>
@@ -133,9 +133,9 @@ export default function WhatStudentsDo() {
 
       {/* Multidisciplinary Contribution Matrix */}
       <div className="mt-16 space-y-6">
-        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400">
-          <Layers className="w-4 h-4 text-violet-400" />
-          <span>Every Role Matters in THE GROUND</span>
+        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#0B1C2D]">
+          <Layers className="w-4 h-4 text-[#0B1C2D]" />
+          <span className="font-semibold">Every Role Matters in THE GROUND</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -144,17 +144,17 @@ export default function WhatStudentsDo() {
             return (
               <div
                 key={r.name}
-                className="p-5 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:border-white/20 transition-colors space-y-2 group"
+                className="ground-card p-5 space-y-2 group"
               >
-                <div className="flex items-center gap-2.5 text-white">
-                  <div className="p-1.5 rounded bg-white/5 border border-white/10 group-hover:border-violet-500/40 text-violet-400 transition-colors">
+                <div className="flex items-center gap-2.5 text-[#0B1C2D]">
+                  <div className="p-1.5 rounded bg-[#0B1C2D]/10 border border-[#0B1C2D]/15 text-[#0B1C2D]">
                     <Icon className="w-4 h-4" />
                   </div>
-                  <span className="font-mono text-sm uppercase tracking-wide font-medium">
+                  <span className="font-sans text-sm uppercase tracking-wide font-semibold">
                     {r.name}
                   </span>
                 </div>
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-xs text-[#071521]/80 leading-relaxed font-sans">
                   {r.desc}
                 </p>
               </div>

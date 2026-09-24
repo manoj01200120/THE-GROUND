@@ -12,41 +12,33 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         ground: {
-          950: "#050507",
-          900: "#09090d",
-          850: "#0e0e14",
-          800: "#13131c",
-          750: "#181824",
-          700: "#222233",
-          600: "#323249",
-          500: "#4e4e6b",
-          400: "#7c7c9e",
-          300: "#a9a9c2",
-          200: "#d4d4e3",
-          100: "#f0f0f7",
-        },
-        violet: {
-          glow: "#8b5cf6",
-          dark: "#5b21b6",
-        },
-        accent: {
-          blue: "#3b82f6",
-          violet: "#8b5cf6",
-          emerald: "#10b981",
-          amber: "#f59e0b",
+          bg: "#6288A6",       // Primary steel blue background
+          dark: "#0B1C2D",     // Primary dark / Logo outline
+          text: "#071521",     // Primary text
+          cream: "#F3EBDD",    // Cream / Sun
+          light: "#9DB9D0",    // Light blue landscape
+          mid: "#668BAA",      // Mid blue landscape
+          deep: "#315574",     // Dark blue landscape
+          navy: "#19334B",     // Deep blue valley
+          surface: "rgba(11, 28, 45, 0.18)",
+          card: "rgba(255, 255, 255, 0.12)",
+          cardDark: "rgba(11, 28, 45, 0.45)",
+          border: "rgba(11, 28, 45, 0.15)",
+          borderLight: "rgba(243, 235, 221, 0.22)",
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-montserrat)", "Montserrat", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
-      boxShadow: {
-        "subtle-card": "0 0 0 1px rgba(255, 255, 255, 0.06), 0 8px 24px -4px rgba(0, 0, 0, 0.5)",
-        "glow-violet": "0 0 35px -5px rgba(139, 92, 246, 0.25)",
-        "glow-subtle": "0 0 25px -5px rgba(255, 255, 255, 0.08)",
+      letterSpacing: {
+        brand: "0.28em",
       },
-      animation: {
-        "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      boxShadow: {
+        "ground-card": "0 4px 20px -2px rgba(11, 28, 45, 0.15), 0 0 0 1px rgba(11, 28, 45, 0.1)",
+        "ground-card-dark": "0 8px 30px -4px rgba(7, 21, 33, 0.35), 0 0 0 1px rgba(243, 235, 221, 0.1)",
+        "ground-hover": "0 8px 25px -4px rgba(11, 28, 45, 0.25), 0 0 0 1px rgba(243, 235, 221, 0.3)",
+        "ground-sun": "0 0 20px rgba(243, 235, 221, 0.4)",
       },
     },
   },

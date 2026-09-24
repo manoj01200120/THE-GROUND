@@ -62,15 +62,15 @@ export default function MemberJourney() {
   ];
 
   return (
-    <section id="member-journey" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-white/[0.06]">
-      <div className="space-y-4 max-w-3xl">
-        <div className="text-xs font-mono tracking-widest text-violet-400 uppercase">
+    <section id="member-journey" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15">
+      <div className="space-y-3 max-w-3xl">
+        <div className="text-xs font-mono tracking-widest text-[#0B1C2D]/80 uppercase">
           06 // Progression & Growth
         </div>
-        <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white font-mono uppercase">
+        <h2 className="text-3xl md:text-5xl font-sans font-medium uppercase tracking-tight text-[#071521]">
           The Member Journey
         </h2>
-        <p className="text-zinc-400 text-base md:text-lg leading-relaxed">
+        <p className="text-[#071521]/80 text-base md:text-lg leading-relaxed font-sans">
           Responsibility is never handed out by title or seniority. It is earned through an unceasing flywheel of contribution and trust.
         </p>
       </div>
@@ -80,44 +80,44 @@ export default function MemberJourney() {
         {pillars.map((p) => (
           <div
             key={p.title}
-            className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] space-y-1"
+            className="ground-card p-4 space-y-1"
           >
-            <div className="text-xs font-mono uppercase tracking-wider text-violet-300 font-semibold">
+            <div className="text-xs font-sans uppercase tracking-wider text-[#0B1C2D] font-semibold">
               + {p.title}
             </div>
-            <p className="text-xs text-zinc-400 font-sans leading-relaxed">
+            <p className="text-xs text-[#071521]/80 font-sans leading-relaxed">
               {p.desc}
             </p>
           </div>
         ))}
       </div>
 
-      {/* Cinematic Journey Timeline */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Cinematic Journey Cards */}
+      <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {journeyStages.map((st, idx) => {
           const Icon = st.icon;
           return (
             <div
               key={st.name + idx}
-              className="glass-panel rounded-xl p-6 border border-white/[0.07] hover:border-violet-500/40 transition-all space-y-3 relative group"
+              className="ground-card-dark p-6 space-y-3 relative group"
             >
               <div className="flex items-center justify-between">
-                <div className="p-2 rounded bg-white/5 border border-white/10 text-white group-hover:text-violet-300 group-hover:border-violet-500/40 transition-colors">
+                <div className="p-2 rounded bg-ground-cream/10 border border-ground-cream/20 text-ground-cream group-hover:border-ground-cream/40 transition-colors">
                   <Icon className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-mono text-zinc-500">{st.phase}</span>
+                <span className="text-[11px] font-mono text-ground-cream/60">{st.phase}</span>
               </div>
 
               <div>
-                <h3 className="text-lg font-mono uppercase text-white font-medium">
+                <h3 className="text-lg font-sans uppercase text-ground-cream font-medium">
                   {st.name}
                 </h3>
-                <div className="text-xs font-mono text-violet-400 italic">
+                <div className="text-xs font-sans text-ground-cream/75 italic">
                   {st.tagline}
                 </div>
               </div>
 
-              <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+              <p className="text-xs text-ground-cream/80 leading-relaxed font-sans">
                 {st.desc}
               </p>
             </div>

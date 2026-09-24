@@ -9,7 +9,7 @@ export default function WhyWeExist() {
     },
     {
       title: "Real Problems",
-      desc: "Toy classroom assignments and synthetic tutorial code fail to prepare students for ambiguous real-world constraints.",
+      desc: "Toy classroom assignments and synthetic tutorial exercises fail to prepare students for ambiguous real-world constraints.",
       icon: Target,
     },
     {
@@ -24,80 +24,80 @@ export default function WhyWeExist() {
     },
     {
       title: "Opportunities to Build",
-      desc: "A trusted, organized framework where ideas transform into shipped software and verified proof of work.",
+      desc: "A trusted, organized framework where ideas transform into shipped software and verified capability.",
       icon: Trophy,
     },
   ];
 
   return (
-    <section id="why-we-exist" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-white/[0.06]">
-      <div className="space-y-4 max-w-3xl">
-        <div className="text-xs font-mono tracking-widest text-violet-400 uppercase">
+    <section id="why-we-exist" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15">
+      <div className="space-y-3 max-w-3xl">
+        <div className="text-xs font-mono tracking-widest text-[#0B1C2D]/80 uppercase">
           02 // The Reality Gap
         </div>
-        <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white font-mono uppercase">
+        <h2 className="text-3xl md:text-5xl font-sans font-medium uppercase tracking-tight text-[#071521]">
           Why We Exist
         </h2>
-        <p className="text-zinc-400 text-base md:text-lg leading-relaxed">
-          There is an immense chasm between <span className="text-zinc-200">classroom learning</span> and <span className="text-zinc-200">real-world capability</span>.
+        <p className="text-[#071521]/80 text-base md:text-lg leading-relaxed font-sans">
+          There is an immense chasm between <span className="text-[#0B1C2D] font-semibold">classroom learning</span> and <span className="text-[#0B1C2D] font-semibold">real-world capability</span>.
         </p>
       </div>
 
       <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
         {/* Left Card: What students have */}
-        <div className="glass-panel rounded-xl p-8 border border-white/[0.08] relative">
-          <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 uppercase tracking-widest mb-6">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <span>What Students Have</span>
+        <div className="ground-card p-8 relative space-y-6">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#0B1C2D] uppercase tracking-widest border-b border-[#0B1C2D]/10 pb-4">
+            <CheckCircle2 className="w-4 h-4 text-[#0B1C2D]" />
+            <span className="font-semibold">What Students Have</span>
           </div>
 
-          <div className="space-y-6">
-            <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.05]">
-              <div className="text-white font-mono font-medium text-base">Boundless Ideas</div>
-              <p className="text-zinc-400 text-xs mt-1 leading-relaxed">
-                Students possess fresh perspectives, unconstrained creativity, and hunger to solve meaningful societal and technical challenges.
+          <div className="space-y-4">
+            <div className="p-4 rounded-lg bg-[#0B1C2D]/10 border border-[#0B1C2D]/15">
+              <div className="text-[#0B1C2D] font-sans font-semibold text-sm uppercase tracking-wide">Boundless Ideas</div>
+              <p className="text-[#071521]/80 text-xs mt-1 leading-relaxed font-sans">
+                Students possess fresh perspectives, unconstrained creativity, and hunger to solve meaningful challenges.
               </p>
             </div>
 
-            <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.05]">
-              <div className="text-white font-mono font-medium text-base">Raw Technical Skills</div>
-              <p className="text-zinc-400 text-xs mt-1 leading-relaxed">
-                Proficiency in programming languages, design fundamentals, algorithmic problem-solving, and foundational theory.
+            <div className="p-4 rounded-lg bg-[#0B1C2D]/10 border border-[#0B1C2D]/15">
+              <div className="text-[#0B1C2D] font-sans font-semibold text-sm uppercase tracking-wide">Raw Technical Curiosity</div>
+              <p className="text-[#071521]/80 text-xs mt-1 leading-relaxed font-sans">
+                Aptitude for programming languages, design fundamentals, algorithmic problem-solving, and foundational theory.
               </p>
             </div>
 
-            <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.05]">
-              <div className="text-white font-mono font-medium text-base">High Energy & Agency</div>
-              <p className="text-zinc-400 text-xs mt-1 leading-relaxed">
-                Willingness to dedicate long nights and intense focus toward building things they genuinely care about.
+            <div className="p-4 rounded-lg bg-[#0B1C2D]/10 border border-[#0B1C2D]/15">
+              <div className="text-[#0B1C2D] font-sans font-semibold text-sm uppercase tracking-wide">Energy & Agency</div>
+              <p className="text-[#071521]/80 text-xs mt-1 leading-relaxed font-sans">
+                Willingness to dedicate intense focus toward building things they genuinely care about with real collaborators.
               </p>
             </div>
           </div>
         </div>
 
         {/* Right Card: What students lack & what THE GROUND provides */}
-        <div className="glass-panel rounded-xl p-8 border border-violet-500/20 bg-gradient-to-b from-violet-950/10 to-transparent relative">
-          <div className="flex items-center gap-2 text-xs font-mono text-violet-300 uppercase tracking-widest mb-6">
-            <AlertCircle className="w-4 h-4 text-violet-400" />
-            <span>The Missing Bridge That THE GROUND Connects</span>
+        <div className="ground-card-dark p-8 relative space-y-5">
+          <div className="flex items-center gap-2 text-xs font-mono text-ground-cream uppercase tracking-widest border-b border-ground-cream/15 pb-4">
+            <AlertCircle className="w-4 h-4 text-ground-cream" />
+            <span className="font-semibold">The Missing Bridge THE GROUND Connects</span>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             {missingElements.map((item) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.title}
-                  className="flex items-start gap-3.5 p-3 rounded-lg bg-white/[0.03] border border-white/[0.06] hover:border-violet-500/30 transition-colors"
+                  className="flex items-start gap-3.5 p-3 rounded-lg bg-[#071521]/60 border border-ground-cream/15 hover:border-ground-cream/35 transition-colors"
                 >
-                  <div className="p-1.5 rounded bg-violet-500/10 text-violet-300 mt-0.5">
+                  <div className="p-1.5 rounded bg-ground-cream/15 text-ground-cream mt-0.5">
                     <Icon className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <div className="text-white font-mono text-xs uppercase tracking-wider font-semibold">
+                    <div className="text-ground-cream font-sans text-xs uppercase tracking-wider font-semibold">
                       {item.title}
                     </div>
-                    <p className="text-zinc-400 text-xs mt-0.5 leading-relaxed">
+                    <p className="text-ground-cream/75 text-xs mt-0.5 leading-relaxed font-sans">
                       {item.desc}
                     </p>
                   </div>
@@ -109,22 +109,22 @@ export default function WhyWeExist() {
       </div>
 
       {/* Synthesis Banner */}
-      <div className="mt-8 p-6 rounded-xl border border-white/10 bg-white/[0.02] flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="mt-8 p-6 rounded-xl border border-[#0B1C2D]/15 bg-[#0B1C2D]/10 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-full bg-white/10 text-white">
+          <div className="p-2.5 rounded-full bg-[#0B1C2D] text-[#F3EBDD]">
             <Link2 className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-sm font-mono uppercase tracking-wider text-white font-medium">
+            <div className="text-sm font-sans uppercase tracking-wider text-[#0B1C2D] font-semibold">
               THE GROUND connects talent with real problems
             </div>
-            <div className="text-xs text-zinc-400">
-              Transforming individual potential into collective, verifiable capability.
+            <div className="text-xs text-[#071521]/80 font-sans">
+              Transforming potential into collective, practical capability.
             </div>
           </div>
         </div>
-        <div className="text-xs font-mono text-violet-400 uppercase tracking-widest px-3 py-1.5 rounded border border-violet-500/30 bg-violet-500/10">
-          Proof of Work &gt; Resumes
+        <div className="text-xs font-mono text-[#0B1C2D] uppercase tracking-widest px-3 py-1.5 rounded border border-[#0B1C2D]/25 bg-[#F3EBDD] font-medium shadow-xs">
+          Capability &gt; Classroom Theory
         </div>
       </div>
     </section>

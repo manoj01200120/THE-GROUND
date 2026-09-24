@@ -18,16 +18,16 @@ export default async function AdminProjectsPage() {
   return (
     <AdminLayoutWrapper adminEmail={session.email}>
       <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#F3EBDD]/10 pb-6">
           <div>
-            <div className="text-xs font-mono uppercase tracking-widest text-violet-400">
-              Operations & Builds
+            <div className="text-xs font-heading uppercase tracking-widest text-[#9DB9D0]">
+              Operations & Sprints
             </div>
-            <h1 className="text-2xl md:text-3xl font-mono uppercase text-white font-semibold">
+            <h1 className="text-2xl md:text-3xl font-heading uppercase text-[#F3EBDD] font-medium tracking-[0.1em]">
               Project Management
             </h1>
           </div>
-          <div className="text-xs font-mono text-zinc-400">
+          <div className="text-xs font-heading text-[#9DB9D0]/80">
             Active Projects: {projects.length}
           </div>
         </div>

@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import BackgroundMesh from "./BackgroundMesh";
+import Logo from "@/components/ui/Logo";
 
 export default function HeroSection() {
   const scrollToExplore = () => {
@@ -13,36 +14,37 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center items-center text-center px-6 pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-6 pt-28 pb-16 overflow-hidden">
       <BackgroundMesh />
 
-      <div className="max-w-4xl mx-auto space-y-8 z-10">
-        {/* Subtle pill tag */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-md text-[11px] font-mono tracking-widest text-zinc-300 uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-          A Student-Driven Builder Ecosystem
+      <div className="max-w-4xl mx-auto space-y-7 z-10">
+        {/* Prominent Official Emblem */}
+        <div className="flex justify-center mb-2">
+          <div className="p-3 rounded-full bg-[#0B1C2D]/10 border border-[#0B1C2D]/15 backdrop-blur-sm shadow-sm transition-transform hover:scale-105 duration-300">
+            <Logo iconSize={84} showText={false} />
+          </div>
         </div>
 
-        {/* Large Editorial Headline */}
-        <div className="space-y-4">
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-medium tracking-tight text-white uppercase font-mono">
+        {/* Large Editorial Brand Header */}
+        <div className="space-y-3">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-sans font-medium uppercase tracking-[0.28em] text-[#0B1C2D]">
             THE GROUND
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl text-zinc-300 font-light tracking-wide">
-            Learn. Build. Lead. Guide. <span className="text-zinc-500">Repeat.</span>
+          <p className="text-lg sm:text-xl md:text-2xl font-sans font-light tracking-[0.28em] text-[#071521]/90">
+            Where ideas take shape.
           </p>
         </div>
 
         {/* Supporting description */}
-        <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto font-normal leading-relaxed">
-          A student-driven builder ecosystem for people who want to learn by building real things with real people. No simulated assignments. Genuine proof of work.
+        <p className="text-sm sm:text-base md:text-lg text-[#071521]/80 max-w-2xl mx-auto font-sans leading-relaxed">
+          A student-driven builder ecosystem for people who want to learn by building real things with real people. Grounded, human, and forward-looking.
         </p>
 
         {/* CTAs */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/join"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md bg-white text-black font-mono font-medium text-xs uppercase tracking-widest hover:bg-zinc-200 transition-all duration-200 shadow-glow-subtle hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full sm:w-auto btn-ground-primary px-8 py-3.5 text-xs tracking-[0.2em] inline-flex items-center justify-center gap-2 shadow-sm"
           >
             <span>Join The Ground</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -50,19 +52,22 @@ export default function HeroSection() {
 
           <button
             onClick={scrollToExplore}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-white/[0.04] text-zinc-300 font-mono text-xs uppercase tracking-widest border border-white/10 hover:border-white/20 hover:text-white hover:bg-white/[0.07] transition-all duration-200"
+            className="w-full sm:w-auto btn-ground-outline px-7 py-3.5 text-xs tracking-[0.2em] inline-flex items-center justify-center gap-2 shadow-sm"
           >
             <span>Explore The Ground</span>
-            <ArrowDown className="w-3.5 h-3.5 text-zinc-400" />
+            <ArrowDown className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
 
       {/* Subtle Bottom Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer" onClick={scrollToExplore}>
-        <span className="text-[10px] font-mono tracking-widest uppercase">Scroll</span>
-        <div className="w-4 h-7 rounded-full border border-white/20 flex justify-center pt-1">
-          <div className="w-1 h-1.5 rounded-full bg-zinc-400 animate-bounce" />
+      <div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[#0B1C2D]/60 hover:text-[#0B1C2D] transition-colors cursor-pointer"
+        onClick={scrollToExplore}
+      >
+        <span className="text-[10px] font-sans tracking-[0.25em] uppercase">Scroll</span>
+        <div className="w-4 h-7 rounded-full border border-[#0B1C2D]/30 flex justify-center pt-1">
+          <div className="w-1 h-1.5 rounded-full bg-[#0B1C2D]/70 animate-bounce" />
         </div>
       </div>
     </section>

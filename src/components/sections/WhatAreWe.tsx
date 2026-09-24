@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import {
   Eye,
   Hammer,
@@ -181,25 +182,31 @@ export default function WhatAreWe() {
 
         {/* Active Step Details Panel */}
         <div className="lg:col-span-7 ground-card-dark p-8 md:p-10 relative overflow-hidden">
-          <div className="flex items-center justify-between border-b border-ground-cream/15 pb-5 gap-4">
-            <div className="flex items-center gap-3 min-w-0">
+          {/* Mobile:
+              - stacks the header vertically
+              - prevents Phase / title / Step counter from colliding
+              Desktop:
+              - keeps the original horizontal layout
+          */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-ground-cream/15 pb-5 gap-3 sm:gap-4">
+            <div className="flex flex-wrap items-center gap-3 min-w-0 w-full sm:w-auto">
               <span className="px-2.5 py-1 rounded bg-ground-cream/15 border border-ground-cream/30 text-ground-cream text-xs font-mono uppercase whitespace-nowrap">
                 {currentStep.badge}
               </span>
 
-              <div className="flex items-center gap-2 min-w-0">
+              <div className="flex items-center gap-2 min-w-0 flex-1">
                 <ActiveIcon
                   className="w-4 h-4 text-ground-cream/70 shrink-0"
                   aria-hidden="true"
                 />
 
-                <h3 className="text-2xl font-sans uppercase text-ground-cream font-medium truncate">
+                <h3 className="text-xl sm:text-2xl font-sans uppercase text-ground-cream font-medium leading-tight break-words sm:truncate">
                   {currentStep.name}
                 </h3>
               </div>
             </div>
 
-            <span className="text-xs font-mono text-ground-cream/60 whitespace-nowrap">
+            <span className="text-[10px] sm:text-xs font-mono text-ground-cream/60 whitespace-nowrap self-start sm:self-auto">
               Step {activeStep + 1} of 5
             </span>
           </div>

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import Logo from "@/components/ui/Logo";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +14,9 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -29,6 +30,7 @@ export default function Navbar() {
     { label: "Projects", href: "/projects" },
     { label: "Community", href: "/#member-journey" },
     { label: "For Clients", href: "/clients" },
+    { label: "Wings", href: "/wings" },
   ];
 
   return (
@@ -40,40 +42,41 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand */}
         <Link
           href="/"
           className="group flex items-center hover:opacity-90 transition-opacity"
         >
-          <Logo iconSize={36} showText={true} showTagline={false} />
+          <span className="font-sans font-medium text-[15px] uppercase tracking-[0.28em] leading-tight text-[#0B1C2D]">
+            THE GROUND
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 text-[12px] uppercase font-sans font-medium tracking-[0.16em] text-[#071521]/80">
+        <nav className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="hover:text-[#0B1C2D] transition-colors py-1 relative group"
+              className="btn-ground-primary px-4 py-2 text-[11px] font-medium tracking-[0.16em] uppercase inline-flex items-center justify-center whitespace-nowrap shadow-sm transition-all duration-200 hover:opacity-90"
             >
               {link.label}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#0B1C2D] transition-all duration-200 group-hover:w-full" />
             </Link>
           ))}
         </nav>
 
-        {/* Controls: CTA */}
-        <div className="hidden md:flex items-center gap-3.5">
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center">
           <Link
             href="/join"
-            className="btn-ground-primary px-4 py-2 text-[11px] font-medium tracking-[0.2em] inline-flex items-center gap-1.5 shadow-sm"
+            className="btn-ground-primary px-4 py-2 text-[11px] font-medium tracking-[0.2em] inline-flex items-center gap-1.5 shadow-sm transition-all duration-200 hover:opacity-90"
           >
             <span>Join The Ground</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* Mobile Hamburger Controls */}
+        {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-2.5">
           <Link
             href="/join"
@@ -87,7 +90,11 @@ export default function Navbar() {
             aria-label="Toggle navigation menu"
             className="p-1.5 text-[#0B1C2D] hover:bg-[#0B1C2D]/10 rounded transition-colors"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -100,11 +107,12 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[#071521] hover:text-[#0B1C2D] py-2 border-b border-[#0B1C2D]/10"
+                className="btn-ground-primary px-4 py-2 text-[11px] font-medium tracking-[0.16em] inline-flex items-center transition-all duration-200"
               >
                 {link.label}
               </Link>
             ))}
+
             <div className="pt-3">
               <Link
                 href="/join"

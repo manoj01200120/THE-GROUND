@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { adminLogin } from "@/lib/actions/auth.actions";
 import { Lock, Mail, Loader2, AlertCircle, KeyRound } from "lucide-react";
 import Link from "next/link";
-import Logo from "@/components/ui/Logo";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -38,7 +37,6 @@ export default function AdminLoginPage() {
       <div className="ground-card-dark rounded-2xl p-8 md:p-10 border border-[#F3EBDD]/15 max-w-md w-full space-y-6 shadow-2xl">
         <div className="text-center space-y-3">
           <div className="flex justify-center">
-            <Logo iconSize={44} showText={false} />
           </div>
           <div>
             <h1 className="text-xl font-heading uppercase text-[#F3EBDD] font-medium tracking-[0.2em]">

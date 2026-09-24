@@ -11,7 +11,7 @@ import CommunityFlywheel from "@/components/sections/CommunityFlywheel";
 
 export default function HomePage() {
   return (
-    <div className="relative">
+    <main className="relative w-full overflow-x-clip">
       <HeroSection />
       <WhatAreWe />
       <WhyWeExist />
@@ -22,6 +22,6 @@ export default function HomePage() {
       <ProjectSystem />
       <ClientSystem />
       <CommunityFlywheel />
-    </div>
+    </main>
   );
 }

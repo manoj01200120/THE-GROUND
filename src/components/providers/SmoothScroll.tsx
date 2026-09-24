@@ -1,40 +1,80 @@
 "use client";
 
-import { useEffect, ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function SmoothScroll({ children }: { children: ReactNode }) {
+export default function SmoothScroll({
+  children,
+}: {
+  children: ReactNode;
+}) {
   useEffect(() => {
-    // Check user preference for reduced motion
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
+    // Respect user's reduced-motion preference
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    if (reducedMotion.matches) {
+      return;
+    }
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const isTouchDevice =
+      window.matchMedia("(pointer: coarse)").matches ||
+      "ontouchstart" in window;
+
     const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: isTouchDevice ? 0.8 : 1.0,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+
       orientation: "vertical",
       gestureOrientation: "vertical",
+
       smoothWheel: true,
-      touchMultiplier: 1.5,
+
+      // Keep touch scrolling natural.
+      syncTouch: false,
+
+      // Lighter touch behavior.
+      touchMultiplier: 1,
+
+      // Prevent excessive wheel smoothing.
+      wheelMultiplier: 1,
+
+      autoRaf: false,
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
+    const handleScroll = () => {
+      ScrollTrigger.update();
+    };
 
-    const updateTicker = (time: number) => {
+    lenis.on("scroll", handleScroll);
+
+    const update = (time: number) => {
       lenis.raf(time * 1000);
     };
 
-    gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.add(update);
+
+    // Let GSAP recover naturally from frame drops.
+    gsap.ticker.lagSmoothing(500, 33);
+
+    // Refresh ScrollTrigger once everything is ready.
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
 
     return () => {
-      gsap.ticker.remove(updateTicker);
+      gsap.ticker.remove(update);
+
+      lenis.off("scroll", handleScroll);
       lenis.destroy();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+
+      // Don't destroy ScrollTriggers belonging to other components.
+      ScrollTrigger.refresh();
     };
   }, []);
 

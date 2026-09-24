@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
@@ -46,7 +47,11 @@ export default function RootLayout({
         <CurrencyProvider>
           <SmoothScroll>
             <Navbar />
-            <main className="flex-1">{children}</main>
+
+            <main className="flex-1 min-w-0">
+              {children}
+            </main>
+
             <Footer />
           </SmoothScroll>
         </CurrencyProvider>

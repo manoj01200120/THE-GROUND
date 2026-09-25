@@ -5,6 +5,7 @@ interface JourneyStage {
   phase: string;
   tagline: string;
   desc: string;
+  timeline: string;
   icon: typeof Compass;
 }
 
@@ -14,6 +15,7 @@ const journeyStages: JourneyStage[] = [
     phase: "Stage 01",
     tagline: "Observe, inspect, and absorb.",
     desc: "Join sessions, review active repositories, engage in discussions, and understand how the ecosystem operates.",
+    timeline: "1–2 Days",
     icon: Compass,
   },
   {
@@ -21,6 +23,7 @@ const journeyStages: JourneyStage[] = [
     phase: "Stage 02",
     tagline: "Contribute code, design, or research.",
     desc: "Join an active squad. Pick up tasks, submit pull requests, receive peer critiques, and ship your first functional contributions.",
+    timeline: "3–5 Days",
     icon: Hammer,
   },
   {
@@ -28,6 +31,7 @@ const journeyStages: JourneyStage[] = [
     phase: "Stage 03",
     tagline: "Own core systems and team outcomes.",
     desc: "Take ownership of major system modules, unblock peers, communicate with clients, and ensure deadlines are met with zero excuses.",
+    timeline: "5–7 Days",
     icon: Shield,
   },
   {
@@ -35,6 +39,7 @@ const journeyStages: JourneyStage[] = [
     phase: "Stage 04",
     tagline: "Architect projects and mentor newer builders.",
     desc: "Conduct architectural reviews, onboard new contributors, resolve team bottlenecks, and uphold engineering standards.",
+    timeline: "3–5 Days",
     icon: Sparkles,
   },
   {
@@ -42,6 +47,7 @@ const journeyStages: JourneyStage[] = [
     phase: "Stage 05",
     tagline: "Initiate moonshots and seed new ventures.",
     desc: "Formulate new problem domains, spin out real products, connect external industry partners, and invest back into the ecosystem.",
+    timeline: "5–7 Days",
     icon: Flame,
   },
   {
@@ -49,6 +55,7 @@ const journeyStages: JourneyStage[] = [
     phase: "Stage 06",
     tagline: "Return to curiosity at a higher frontier.",
     desc: "The cycle does not terminate. Veteran builders return to explore new paradigms, technologies, and uncharted challenges.",
+    timeline: "Ongoing",
     icon: RefreshCw,
   },
 ];
@@ -62,16 +69,22 @@ export default function MemberJourney() {
   ];
 
   return (
-    <section id="member-journey" className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15">
+    <section
+      id="member-journey"
+      className="py-24 px-6 md:px-8 max-w-7xl mx-auto border-t border-[#0B1C2D]/15"
+    >
       <div className="space-y-3 max-w-3xl">
         <div className="text-xs font-mono tracking-widest text-[#0B1C2D]/80 uppercase">
           06 // Progression & Growth
         </div>
+
         <h2 className="text-3xl md:text-5xl font-sans font-medium uppercase tracking-tight text-[#071521]">
           The Member Journey
         </h2>
+
         <p className="text-[#071521]/80 text-base md:text-lg leading-relaxed font-sans">
-          Responsibility is never handed out by title or seniority. It is earned through an unceasing flywheel of contribution and trust.
+          Responsibility is never handed out by title or seniority. It is earned
+          through an unceasing flywheel of contribution and trust.
         </p>
       </div>
 
@@ -85,6 +98,7 @@ export default function MemberJourney() {
             <div className="text-xs font-sans uppercase tracking-wider text-[#0B1C2D] font-semibold">
               + {p.title}
             </div>
+
             <p className="text-xs text-[#071521]/80 font-sans leading-relaxed">
               {p.desc}
             </p>
@@ -96,6 +110,7 @@ export default function MemberJourney() {
       <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {journeyStages.map((st, idx) => {
           const Icon = st.icon;
+
           return (
             <div
               key={st.name + idx}
@@ -105,13 +120,17 @@ export default function MemberJourney() {
                 <div className="p-2 rounded bg-ground-cream/10 border border-ground-cream/20 text-ground-cream group-hover:border-ground-cream/40 transition-colors">
                   <Icon className="w-4 h-4" />
                 </div>
-                <span className="text-[11px] font-mono text-ground-cream/60">{st.phase}</span>
+
+                <span className="text-[11px] font-mono text-ground-cream/60">
+                  {st.phase}
+                </span>
               </div>
 
               <div>
                 <h3 className="text-lg font-sans uppercase text-ground-cream font-medium">
                   {st.name}
                 </h3>
+
                 <div className="text-xs font-sans text-ground-cream/75 italic">
                   {st.tagline}
                 </div>
@@ -120,6 +139,17 @@ export default function MemberJourney() {
               <p className="text-xs text-ground-cream/80 leading-relaxed font-sans">
                 {st.desc}
               </p>
+
+              {/* Expected Timeline */}
+              <div className="pt-3 mt-2 border-t border-ground-cream/10">
+                <div className="text-[10px] font-mono uppercase tracking-widest text-ground-cream/50">
+                  Expected Timeline
+                </div>
+
+                <div className="mt-1 text-sm font-sans text-ground-cream font-medium">
+                  {st.timeline}
+                </div>
+              </div>
             </div>
           );
         })}
